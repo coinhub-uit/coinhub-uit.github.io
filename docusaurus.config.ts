@@ -45,6 +45,7 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        blog: false,
       } satisfies Preset.Options,
     ],
   ],
@@ -63,7 +64,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
           href: 'https://github.com/coinhub-uit/',
@@ -92,6 +93,26 @@ const config: Config = {
       darkTheme: prismThemes.oneDark,
     },
   } satisfies Preset.ThemeConfig,
+
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+
+        // If you're using `noIndex: true`, set `forceIgnoreNoIndex` to enable local index:
+        // forceIgnoreNoIndex: true,
+      },
+    ],
+  ],
 };
 
 export default config;
