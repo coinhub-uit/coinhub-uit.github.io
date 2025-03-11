@@ -82,6 +82,7 @@ erDiagram
     nvarchar title
     text content
     timestamp createdAt "Default now"
+    boolean isSeen
   }
 
   source }o--|| transaction : "has"
