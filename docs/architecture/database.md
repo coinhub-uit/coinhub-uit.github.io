@@ -34,8 +34,8 @@ erDiagram
     varchar(3) methodId "Seed(NR, PR, PIR)"
   }
 
-  interest_rate {
-    serial interestRateId PK "Auto inc"
+  plan_history {
+    serial planHistoryId PK "Auto inc"
     int planId FK
     date definedDate
     decimal rate
@@ -52,11 +52,9 @@ erDiagram
     date closedDate "Nullable, defined later"
   }
 
-  %% Use latest plan
-  %% The name is ambiguous
-  ticket_interest_rate {
+  ticket_plan_history {
     uuid ticketId PK,FK
-    int interestRateId FK
+    int planHistoryId FK
     date issueDate PK "= ticket[createdAt] + 1 || prev[issueDate] + 1"
     date maturityDate "= issueDate + plan[days]"
   }
@@ -65,7 +63,10 @@ erDiagram
     serial planId PK "Auto inc"
     int days UK ">= -1, Seed(-1, 90, 180)"
     boolean isDisabled
-    serial latestInterestRate FK "Nullable"
+  }
+
+  avaiable_plan {
+    serial planHistoryId FK
   }
 
   transaction {
@@ -90,10 +91,17 @@ erDiagram
   user }|--|| source : "has"
   source }o--|| ticket : "has"
   ticket ||--o{ method : "has"
-  ticket }|--|| ticket_interest_rate : "has sequential"
-  plan }o--|| interest_rate : "has history"
-  ticket_interest_rate ||--}o interest_rate : "has latest"
+  ticket }|--|| ticket_plan_history : "has sequential"
+  plan }o--|| plan_history : "has history"
+  ticket_plan_history ||--}o plan_history : "has latest"
+  avaiable_plan ||--|| plan_history : "has latest, active"
 ```
+
+:::info[Materialized Views]
+
+- `avaiable_plan`
+
+:::
 
 ### Concretes
 
