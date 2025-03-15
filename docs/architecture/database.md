@@ -11,7 +11,7 @@ sidebar_position: 2
 ```mermaid
 erDiagram
   user {
-    uuid userId PK "Bind with Supabase"
+    uuid id PK "Supabase generated"
     varchar(20) userName UK "Index"
     nvarchar fullName
     char(12) citizenId
@@ -24,25 +24,25 @@ erDiagram
   }
 
   source {
-    varchar(20) sourceId PK "User choice"
+    varchar(20) id PK "User choice"
     uuid userId FK
     money balance "Default 0, >= 0"
   }
 
   method {
     %% Non-renewal, principal rollover, principal & interest rollover
-    varchar(3) methodId "Seed(NR, PR, PIR)"
+    varchar(3) id "Seed(NR, PR, PIR)"
   }
 
   plan_history {
-    serial planHistoryId PK "Auto inc"
+    serial id PK "Auto inc"
     int planId FK
     date definedDate
     decimal rate
   }
 
   ticket {
-    uuid ticketId PK
+    uuid id PK
     int sourceId FK
     int methodId FK
     %% So what if I changed and there're other ... already, will be failed
@@ -60,7 +60,7 @@ erDiagram
   }
 
   plan {
-    serial planId PK "Auto inc"
+    serial id PK "Auto inc"
     int days UK ">= -1, Seed(-1, 90, 180)"
     boolean isDisabled
   }
@@ -70,7 +70,7 @@ erDiagram
   }
 
   transaction {
-    uuid transactionId PK
+    uuid id PK
     int sourceId FK
     money amount "> 0"
     enum type "deposit, withdraw, interest_payment"
@@ -78,7 +78,7 @@ erDiagram
   }
 
   notification {
-    serial notificationId PK
+    serial id PK
     uuid userId FK "Index"
     nvarchar title
     text content
@@ -108,18 +108,18 @@ erDiagram
 ```mermaid
 erDiagram
   statistic {
-      date date
-      int users "Σ user"
-      int tickets
-      money deposits "Σ ticket[initMoney]"
-    }
+    date date
+    int users "Σ user"
+    int tickets
+    money deposits "Σ ticket[initMoney]"
+  }
 
-    settings {
-      money minimumInitMoney
-    }
+  settings {
+    money minimumInitMoney
+  }
 
-    admin {
-      nvarchar username PK,UK
-      text password "Hashed"
-    }
+  admin {
+    nvarchar username PK,UK
+    text password "Hashed"
+  }
 ```
