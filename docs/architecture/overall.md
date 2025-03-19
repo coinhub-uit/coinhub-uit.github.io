@@ -22,7 +22,12 @@ architecture-beta
   group ai_server[AI Server]
   service api_ai(server)[API] in ai_server
 
+  group vnpay_server[VNPay Server]
+  service vnpay_api(server)[API] in vnpay_server
+
   junction junction_bot_left
+
+  junction api_server_and_ai_vnpay
 
   service mobile[Mobile]
   service admin[Admin]
@@ -34,7 +39,9 @@ architecture-beta
 
   fcm{group}:R -- L:junction_bot_left
 
-  api_ai{group}:B -- T:api_server
+  api_server:T -- B:api_server_and_ai_vnpay
+  api_ai{group}:L -- R:api_server_and_ai_vnpay
+  vnpay_api{group}:R -- L:api_server_and_ai_vnpay
 
   admin:T -- B:admin_web_server
 
