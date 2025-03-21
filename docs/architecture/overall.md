@@ -10,11 +10,11 @@ sidebar_position: 1
 architecture-beta
   group supabase[Supabase]
   service authentication_server(server)[Authenticate Server] in supabase
-  service database(database)[Database] in supabase
+  service database(database)[PostgresQL] in supabase
 
   group own_server[Own Server]
-  service api_server(server)[API] in own_server
-  service admin_web_server(server)[Admin Web] in own_server
+  service api_server(server)[API Server NestJS] in own_server
+  service admin_web_server(server)[Admin Web NextJS] in own_server
 
   group firebase[Firebase]
   service fcm(server)[FCM] in firebase
@@ -29,8 +29,8 @@ architecture-beta
 
   junction api_server_and_ai_vnpay
 
-  service mobile[Mobile]
-  service admin[Admin]
+  service mobile[Mobile Flutter]
+  service admin[Admin Browser]
 
   api_server:L -- R:authentication_server{group}
   authentication_server:L -- R:database
