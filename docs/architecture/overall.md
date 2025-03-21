@@ -22,7 +22,7 @@ architecture-beta
   group ai_server[AI Server]
   service api_ai(server)[API] in ai_server
 
-  group vnpay_server[VNPay Server]
+  group vnpay_server[VNPAY Server]
   service vnpay_api(server)[API] in vnpay_server
 
   junction junction_bot_left
