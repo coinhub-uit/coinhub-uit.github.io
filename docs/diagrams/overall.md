@@ -4,8 +4,6 @@ sidebar_position: 1
 
 # Overall
 
-## Diagram
-
 ```mermaid
 architecture-beta
   group supabase[Supabase]
@@ -49,7 +47,3 @@ architecture-beta
   mobile:L -- R:junction_bot_left
   junction_bot_left:T -- B:authentication_server{group}
 ```
-
-## Explanations
-
-Hưng please

@@ -1,15 +1,27 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Database
 
-## Schemas
-
-### User orientation
-
 ```mermaid
 erDiagram
+  statistic {
+    date date
+    int users "Σ user"
+    int tickets
+    money deposits "Σ ticket[initMoney]"
+  }
+
+  settings {
+    money minimumInitMoney
+  }
+
+  admin {
+    nvarchar username PK,UK
+    text password "Hashed"
+  }
+
   user {
     uuid id PK "Supabase generated"
     varchar(20) userName UK "Index"
@@ -102,24 +114,3 @@ erDiagram
 - `avaiable_plan`
 
 :::
-
-### Concretes
-
-```mermaid
-erDiagram
-  statistic {
-    date date
-    int users "Σ user"
-    int tickets
-    money deposits "Σ ticket[initMoney]"
-  }
-
-  settings {
-    money minimumInitMoney
-  }
-
-  admin {
-    nvarchar username PK,UK
-    text password "Hashed"
-  }
-```
