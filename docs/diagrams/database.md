@@ -54,7 +54,7 @@ erDiagram
   }
 
   ticket {
-    uuid id PK
+    serial id PK
     int sourceId FK
     int methodId FK
     %% So what if I changed and there're other ... already, will be failed
@@ -65,7 +65,7 @@ erDiagram
   }
 
   ticket_plan_history {
-    uuid ticketId PK,FK
+    serial ticketId PK,FK
     int planHistoryId FK
     date issueDate PK "= ticket[createdAt] + 1 || prev[issueDate] + 1"
     date maturityDate "= issueDate + plan[days]"
@@ -81,14 +81,6 @@ erDiagram
     serial planHistoryId FK
   }
 
-  transaction {
-    uuid id PK
-    int sourceId FK
-    money amount "> 0"
-    enum type "deposit, withdraw, interest_payment"
-    timestamp createdAt "Default now"
-  }
-
   notification {
     serial id PK
     uuid userId FK "Index"
@@ -98,7 +90,6 @@ erDiagram
     boolean isSeen
   }
 
-  source }o--|| transaction : "has"
   user }o--|| notification : "has"
   user }|--|| source : "has"
   source }o--|| ticket : "has"
