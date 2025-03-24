@@ -17,19 +17,21 @@ flowchart TD
       authenticationServer["Authentication Server"]
     end
     subgraph databases["Databases"]
-      database["Database"]
+      authenticationDatabase["Authentication Database"]
+      resourcesDatabase["Resources Database"]
     end
   end
 
   mobile-->authenticationServer
   mobile-->apiServer
   adminWebsite-->apiServer
-  authenticationServer-->database
-  apiServer-->database
+  authenticationServer-->authenticationDatabase
+  apiServer-->authenticationDatabase
+  apiServer-->resourcesDatabase
 ```
 
 :::info
 
-This is SOA architecture
+This is Service-Oriented Architecture _(SOA)_
 
 :::
