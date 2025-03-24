@@ -1,6 +1,4 @@
----
-sidebar_position: 1
----
+- ## sidebar_position: 1
 
 # User authentication
 
@@ -10,43 +8,43 @@ sidebar_position: 1
 sequenceDiagram
   autonumber
   actor mobile as Mobile
-  participant apiServer as API Server
   participant authServer as Authentication Server
 
-  mobile->>apiServer: Thông tin người dùng
+  mobile->>authServer: Gửi thông tin tài khoản
   activate mobile
-  activate apiServer
-  apiServer->>authServer: Dữ liệu người dùng
-  activate apiServer
   activate authServer
-  authServer-->>apiServer: Kết quả tìm kiếm
-  deactivate apiServer
-  deactivate authServer
-  alt Thành công
-    apiServer-->>mobile: JWT Token
-  else Thất bại
-    apiServer-->>mobile: Thất bại
+  alt Tìm thấy tài khoản
+    authServer-->>mobile: Trả về JWT
+  else Không tìm thấy tài khoản
+    authServer-->>mobile: Hong tìm thấy gì hết chơn
   end
   deactivate mobile
-  deactivate apiServer
+  deactivate authServer
 ```
 
-## Oauth
+## OauthApp
 
 ```mermaid
 sequenceDiagram
   autonumber
   actor mobile as Mobile
-  participant oauthProvider as OAuth Provider
-  participant oauthPage as OAuth Page
+  participant OAuthProvider as OAuth Provider
+  participant authServer as Authentication Server
 
-  mobile->>oauthProvider: Gửi yêu cầu đăng nhập cùng với "code verifier"
+  mobile->>OAuthProvider: Yêu cầu đăng nhập
   activate mobile
-  activate oauthProvider
-  oauthProvider-->>mobile: Gửi về url chuyển hướng đến với endpoint Oauth cùng với "code challenge"
+  activate OAuthProvider
+  OAuthProvider-->>mobile: Trả về url để redirect đến trang đăng nhập
+  mobile->>OAuthProvider: Gửi thông tin đăng nhập
+  OAuthProvider-->>mobile: Validate và Trả về Authorization code
+  mobile->>authServer: Gửi Authorization code cho authServer
+  activate mobile
+  activate authServer
+  authServer-->>mobile: Gửi về access Token
+  deactivate mobile
+  deactivate authServer
+  OAuthProvider-->>mobile: Url để trở về app
+  deactivate mobile
+  deactivate OAuthProvider
 
-  oauthPage->>oauthProvider: Gửi yêu cầu để nhận permission(kèm thông tin)
-  activate oauthProvider
-  activate oauthPage
-  oauthProvider-->>oauthPage: Trả về url chuyển hướng về mobile kèm với authorization code
 ```
