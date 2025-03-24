@@ -43,7 +43,7 @@ erDiagram
 
   method {
     %% Non-renewal, principal rollover, principal & interest rollover
-    varchar(3) id "Seed(NR, PR, PIR)"
+    enum id "Seed(NR, PR, PIR)"
   }
 
   plan_history {
@@ -56,7 +56,7 @@ erDiagram
   ticket {
     serial id PK
     int sourceId FK
-    int methodId FK
+    enum methodId FK
     %% So what if I changed and there're other ... already, will be failed
     money initMoney ">= settings[minimumInitMoney] when insert"
     %% Calculate before return to client (not in DB)?
