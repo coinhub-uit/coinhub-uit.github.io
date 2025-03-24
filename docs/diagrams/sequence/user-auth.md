@@ -1,4 +1,6 @@
-- ## sidebar_position: 1
+---
+sidebar_position: 1
+---
 
 # User authentication
 
@@ -14,7 +16,7 @@ sequenceDiagram
   activate mobile
   activate authServer
   alt Tìm thấy tài khoản
-    authServer-->>mobile: Trả về JWT
+    authServer-->>mobile: Trả về Token
   else Không tìm thấy tài khoản
     authServer-->>mobile: Hong tìm thấy gì hết chơn
   end
@@ -34,16 +36,17 @@ sequenceDiagram
   mobile->>OAuthProvider: Yêu cầu đăng nhập
   activate mobile
   activate OAuthProvider
-  OAuthProvider-->>mobile: Trả về url để redirect đến trang đăng nhập
-  mobile->>OAuthProvider: Gửi thông tin đăng nhập
-  OAuthProvider-->>mobile: Validate và Trả về Authorization code
-  mobile->>authServer: Gửi Authorization code cho authServer
+  OAuthProvider-->>mobile: Trả về Redirect URL đến trang đăng nhập
+  mobile->>OAuthProvider: Thông tin đăng nhập
+  OAuthProvider-->>OAuthProvider: Validate
+  OAuthProvider-->>mobile: Authorization Code
+  mobile->>authServer: Authorization Code
   activate mobile
   activate authServer
-  authServer-->>mobile: Gửi về access Token
+  authServer-->>mobile: Token
   deactivate mobile
   deactivate authServer
-  OAuthProvider-->>mobile: Url để trở về app
+  OAuthProvider-->>mobile: Return URL
   deactivate mobile
   deactivate OAuthProvider
 
