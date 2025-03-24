@@ -74,7 +74,7 @@ erDiagram
   plan {
     serial id PK "Auto inc"
     int days UK ">= -1, Seed(-1, 90, 180)"
-    boolean isDisabled
+    boolean isActive
   }
 
   avaiable_plan {
