@@ -42,7 +42,7 @@ erDiagram
   }
 
   method {
-    enum id "Seed(NR, PR, PIR)"
+    varchar(3) id "Seed(NR, PR, PIR)"
   }
 
   plan_history {
@@ -56,9 +56,7 @@ erDiagram
     serial id PK
     int sourceId FK
     enum methodId FK
-    %% So what if I changed and there're other ... already, will be failed
     money initMoney ">= settings[minimumInitMoney] when insert"
-    %% Calculate before return to client (not in DB)?
     date createdAt "Default now"
     date closedDate "Nullable, defined later"
   }
