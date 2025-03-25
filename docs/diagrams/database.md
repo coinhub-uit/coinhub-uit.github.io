@@ -55,7 +55,7 @@ erDiagram
   ticket {
     serial id PK
     int sourceId FK
-    enum methodId FK
+    varchar(3) methodId FK
     money initMoney ">= settings[minimumInitMoney] when insert"
     date createdAt "Default now"
     date closedDate "Nullable, defined later"
