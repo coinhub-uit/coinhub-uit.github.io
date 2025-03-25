@@ -42,7 +42,6 @@ erDiagram
   }
 
   method {
-    %% Non-renewal, principal rollover, principal & interest rollover
     enum id "Seed(NR, PR, PIR)"
   }
 
@@ -97,11 +96,14 @@ erDiagram
   ticket }|--|| ticket_plan_history : "has sequential"
   plan }o--|| plan_history : "has history"
   ticket_plan_history ||--}o plan_history : "has latest"
-  avaiable_plan ||--|| plan_history : "has latest, active"
+  avaiable_plan ||--|| plan_history : "has latest, active<br />(materialized view)"
 ```
 
-:::info[Materialized Views]
+:::note[Terms explanation]
 
-- `avaiable_plan`
+- **Method**:
+  - `NR`: Non-rollover
+  - `PR`: Principal Rollover
+  - `PIR`: Principal & Interest Rollover
 
 :::
