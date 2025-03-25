@@ -24,7 +24,7 @@ sequenceDiagram
   deactivate authServer
 ```
 
-## OauthApp
+## OAuth
 
 ```mermaid
 sequenceDiagram
@@ -38,7 +38,7 @@ sequenceDiagram
   activate OAuthProvider
   OAuthProvider-->>mobile: Trả về Redirect URL đến trang đăng nhập
   mobile->>OAuthProvider: Thông tin đăng nhập
-  OAuthProvider-->>OAuthProvider: Validate
+  OAuthProvider-->>OAuthProvider: Xác thực
   OAuthProvider-->>mobile: Authorization Code
   mobile->>authServer: Authorization Code
   activate mobile
