@@ -94,9 +94,9 @@ erDiagram
   user }|--|| source : "has"
   source }o--|| ticket : "has"
   ticket ||--o{ method : "has"
-  ticket }|--|| ticket_plan_history : "has sequential"
+  ticket }|--|| ticket_history : "has sequential"
   plan }o--|| plan_history : "has history"
-  ticket_plan_history ||--}o plan_history : "has latest"
+  ticket_history ||--}o plan_history : "has latest"
 ```
 
 :::note
