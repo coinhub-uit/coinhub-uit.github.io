@@ -33,6 +33,7 @@ erDiagram
     text address "Optional"
     text email "Optional"
     char(10) phoneNumber "Optional"
+    datetime createAt
   }
 
   source {
