@@ -14,7 +14,7 @@ erDiagram
   }
 
   settings {
-    money minimumInitMoney
+    money minAmountOpenTicket
   }
 
   admin {
@@ -57,7 +57,7 @@ erDiagram
     serial id PK
     int sourceId FK
     varchar(3) methodId FK
-    date createdAt "Default now"
+    date openedDate "Default now"
     date closedDate "Nullable, defined later"
   }
 
@@ -66,7 +66,7 @@ erDiagram
     date issueDate PK "ticket[createdAt] + 1 || prev[issueDate] + 1"
     date maturityDate "issueDate + plan[days]"
     int planHistoryId FK "plan_history[id] where max(plan_history[definedDate])"
-    money amount ">= settings[minimumInitMoney] when insert"
+    money amount ">= settings[minAmountOpenTicket]"
   }
 
   plan {
