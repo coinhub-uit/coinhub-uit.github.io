@@ -9,8 +9,8 @@ erDiagram
   statistic {
     date date
     int users "Σ user"
-    int tickets
-    money deposits "Σ ticket[initMoney]"
+    int tickets "Σ ticket"
+    money deposits "Σ ticket[amount]"
   }
 
   settings {
@@ -56,16 +56,16 @@ erDiagram
     serial id PK
     int sourceId FK
     varchar(3) methodId FK
-    money initMoney ">= settings[minimumInitMoney] when insert"
     date createdAt "Default now"
     date closedDate "Nullable, defined later"
   }
 
   ticket_history {
     int ticketId PK,FK
+    date issueDate PK "ticket[createdAt] + 1 || prev[issueDate] + 1"
+    date maturityDate "issueDate + plan[days]"
     int planHistoryId FK "plan_history[id] where max(plan_history[definedDate])"
-    date issueDate PK "= ticket[createdAt] + 1 || prev[issueDate] + 1"
-    date maturityDate "= issueDate + plan[days]"
+    money amount ">= settings[minimumInitMoney] when insert"
   }
 
   plan {
