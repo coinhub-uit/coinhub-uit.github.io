@@ -46,7 +46,7 @@ erDiagram
   }
 
   plan_history {
-    serial id PK "Auto inc"
+    serial id PK
     int planId FK
     date definedDate
     decimal rate
@@ -62,20 +62,16 @@ erDiagram
   }
 
   ticket_plan_history {
-    serial ticketId PK,FK
+    int ticketId PK,FK
     int planHistoryId FK
     date issueDate PK "= ticket[createdAt] + 1 || prev[issueDate] + 1"
     date maturityDate "= issueDate + plan[days]"
   }
 
   plan {
-    serial id PK "Auto inc"
+    serial id PK
     int days UK ">= -1, Seed(-1, 90, 180)"
     boolean isActive
-  }
-
-  avaiable_plan {
-    serial planHistoryId FK
   }
 
   notification {
@@ -85,6 +81,13 @@ erDiagram
     text content
     timestamp createdAt "Default now"
     boolean isSeen
+  }
+
+  avaiable_plan {
+    int id "planHistoryId"
+    date definedDate
+    decimal rate
+    int planId
   }
 
   user }o--|| notification : "has"
@@ -98,7 +101,10 @@ erDiagram
 
 :::note
 
+- `serial` type: It's `int` but auto increase. In other tables ref to the table has `serial` will have `int` type
+
 - Materialized view:
+
   - `avaiable_plan`: latest,active plan history
 
 :::
