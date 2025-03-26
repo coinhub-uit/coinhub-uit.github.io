@@ -61,16 +61,16 @@ erDiagram
     date closedDate "Nullable, defined later"
   }
 
-  ticket_plan_history {
+  ticket_history {
     int ticketId PK,FK
-    int planHistoryId FK
+    int planHistoryId FK "plan_history[id] where max(plan_history[definedDate])"
     date issueDate PK "= ticket[createdAt] + 1 || prev[issueDate] + 1"
     date maturityDate "= issueDate + plan[days]"
   }
 
   plan {
     serial id PK
-    int days UK ">= -1, Seed(-1, 90, 180)"
+    int days UK ">= -1, Seed(30, 90, 180)"
     boolean isActive
   }
 
