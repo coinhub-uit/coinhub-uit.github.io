@@ -31,7 +31,6 @@ erDiagram
     text pin "Hashed"
     bytea avatar "Optional, fallback OAuth image"
     text address "Optional"
-    text email "Optional"
     char(10) phoneNumber "Optional"
     datetime createAt
   }
