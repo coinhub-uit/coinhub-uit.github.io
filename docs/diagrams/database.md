@@ -90,6 +90,14 @@ erDiagram
     int planId
   }
 
+  top_up {
+    uuid id PK "Auto gen"
+    enum type "VNPAY | MOMO | ZALOPAY"
+    varchar(20) sourceDestination FK
+    amount money
+    boolean isPaid "Default false"
+  }
+
   user }o--|| notification : "has"
   user }|--|| source : "has"
   source }o--|| ticket : "has"
@@ -97,6 +105,7 @@ erDiagram
   ticket }|--|| ticket_history : "has sequential"
   plan }o--|| plan_history : "has history"
   ticket_history ||--}o plan_history : "has latest"
+  source }o--|| top_up : "has"
 ```
 
 :::note
