@@ -18,13 +18,13 @@ erDiagram
   }
 
   admin {
-    nvarchar username PK,UK
+    text username PK,UK
     text password "Hashed"
   }
 
   user {
     uuid id PK "Supabase generated"
-    varchar(20) userName UK "Index"
+    text userName UK "Index"
     nvarchar fullName
     char(12) citizenId
     date birthDay
@@ -32,7 +32,7 @@ erDiagram
     bytea avatar "Optional, fallback OAuth image"
     text address "Optional"
     char(10) phoneNumber "Optional"
-    datetime createAt
+    timestamp createAt
   }
 
   source {
