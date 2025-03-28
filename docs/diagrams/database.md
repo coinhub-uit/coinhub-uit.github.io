@@ -10,11 +10,11 @@ erDiagram
     date date
     int users "Σ user"
     int tickets "Σ ticket"
-    money deposits "Σ ticket[amount]"
+    decimal deposits "Σ ticket[amount]"
   }
 
   settings {
-    money minAmountOpenTicket
+    decimal minAmountOpenTicket
   }
 
   admin {
@@ -38,7 +38,7 @@ erDiagram
   source {
     varchar(20) id PK "User choice"
     uuid userId FK
-    money balance "Default 0, >= 0"
+    decimal balance "Default 0, >= 0"
   }
 
   method {
@@ -65,7 +65,7 @@ erDiagram
     date issueDate PK "ticket[createdAt] + 1 || prev[issueDate] + 1"
     date maturityDate "issueDate + plan[days]"
     int planHistoryId FK "plan_history[id] where max(plan_history[definedDate])"
-    money amount ">= settings[minAmountOpenTicket]"
+    decimal amount ">= settings[minAmountOpenTicket]"
   }
 
   plan {
@@ -94,7 +94,7 @@ erDiagram
     uuid id PK "Auto gen"
     enum type "VNPAY | MOMO | ZALOPAY"
     varchar(20) sourceDestination FK
-    amount money
+    decimal amount
     boolean isPaid "Default false"
   }
 
@@ -111,6 +111,10 @@ erDiagram
 :::note
 
 - `serial` type: It's `int` but auto increase. In other tables ref to the table has `serial` will have `int` type
+- `decimal` type:
+
+  - With money, it will be `decimal(12,0)`
+  - With rate, it will be `decimal(3,1)`
 
 - Materialized view:
 
