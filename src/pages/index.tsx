@@ -37,7 +37,7 @@ export default function Home(): ReactNode {
       <head>
         <meta
           name="google-site-verification"
-          content="CySf9iaKu0vPNJcgv4klRwF17Po7zOX8Bw6Qwgl0oD0"
+          content="cgKWm5XwQ2LEKa_Yag1x8t-f_UJVZbCnDknm4E0ywcg"
         />
       </head>
       <Layout title={siteConfig.title} description={siteConfig.tagline}>
