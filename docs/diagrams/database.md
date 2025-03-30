@@ -24,12 +24,10 @@ erDiagram
 
   user {
     uuid id PK "Supabase generated"
-    text userName UK "Index"
     nvarchar fullName
     char(12) citizenId
     date birthDay
-    text pin "Hashed"
-    bytea avatar "Optional, fallback OAuth image"
+    text avatar "Optional, URL, fallback OAuth image on client"
     text address "Optional"
     char(10) phoneNumber "Optional"
     timestamp createAt
@@ -70,7 +68,7 @@ erDiagram
 
   plan {
     serial id PK
-    int days UK ">= -1, Seed(30, 90, 180)"
+    int days UK ">= 1, Seed(30, 90, 180)"
     boolean isActive
   }
 
@@ -92,17 +90,17 @@ erDiagram
 
   top_up {
     uuid id PK "Auto gen"
-    enum type "VNPAY | MOMO | ZALOPAY"
+    text type "VNPAY | MOMO | ZALOPAY"
     varchar(20) sourceDestination FK
     decimal amount
     boolean isPaid "Default false"
   }
 
   user }o--|| notification : "has"
-  user }|--|| source : "has"
+  user }o--|| source : "has"
   source }o--|| ticket : "has"
   ticket ||--o{ method : "has"
-  ticket }|--|| ticket_history : "has sequential"
+  ticket }|--|| ticket_history : "has history"
   plan }o--|| plan_history : "has history"
   ticket_history ||--}o plan_history : "has latest"
   source }o--|| top_up : "has"
