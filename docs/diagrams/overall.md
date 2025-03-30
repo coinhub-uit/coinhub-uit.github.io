@@ -8,7 +8,7 @@ sidebar_position: 1
 architecture-beta
   group supabase[Supabase]
   service authentication_server(server)[Authenticate Server] in supabase
-  service database(database)[PostgresQL] in supabase
+  service database(database)[PostgreSQL] in supabase
 
   group own_server[Own Server]
   service api_server(server)[API Server NestJS] in own_server
