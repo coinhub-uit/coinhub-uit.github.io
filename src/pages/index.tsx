@@ -33,19 +33,11 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <>
-      <head>
-        <meta
-          name="google-site-verification"
-          content="cgKWm5XwQ2LEKa_Yag1x8t-f_UJVZbCnDknm4E0ywcg"
-        />
-      </head>
-      <Layout title={siteConfig.title} description={siteConfig.tagline}>
-        <HomepageHeader />
-        <main>
-          <HomepageFeatures />
-        </main>
-      </Layout>
-    </>
+    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+      <HomepageHeader />
+      <main>
+        <HomepageFeatures />
+      </main>
+    </Layout>
   );
 }
