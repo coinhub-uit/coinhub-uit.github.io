@@ -25,12 +25,13 @@ erDiagram
   user {
     uuid id PK "Supabase generated"
     nvarchar fullName
-    char(12) citizenId
-    date birthDay
-    text avatar "Optional, URL, fallback OAuth image on client"
-    text address "Optional"
-    char(10) phoneNumber "Optional"
-    timestamp createAt
+    char(12) citizenId UK
+    date birthDate
+    text avatar "Nullable, URL, fallback OAuth image on client"
+    text address "Nullable"
+    char(10) phoneNumber "Nullable"
+    timestamp createdAt
+    timestamp deletedAt "Nullable"
   }
 
   source {
@@ -46,7 +47,7 @@ erDiagram
   plan_history {
     serial id PK
     int planId FK
-    date definedDate
+    date createdAt
     decimal rate
   }
 
@@ -54,15 +55,15 @@ erDiagram
     serial id PK
     int sourceId FK
     varchar(3) methodId FK
-    date openedDate "Default now"
-    date closedDate "Nullable, defined later"
+    date openedAt "Default now"
+    date closedAt "Nullable, = ticket's end date"
   }
 
   ticket_history {
     int ticketId PK,FK
-    date issueDate PK "ticket[createdAt] + 1 || prev[issueDate] + 1"
-    date maturityDate "issueDate + plan[days]"
-    int planHistoryId FK "plan_history[id] where max(plan_history[definedDate])"
+    date issueAt PK "ticket[createdAt] || prev[issueAt]"
+    date maturityAt "issueDate + plan[days] + 1"
+    int planHistoryId FK "plan_history[id] where max(plan_history[createdAt])"
     decimal amount ">= settings[minAmountOpenTicket]"
   }
 
@@ -83,17 +84,17 @@ erDiagram
 
   avaiable_plan {
     int id "planHistoryId"
-    date definedDate
+    date createdAt
     decimal rate
     int planId
   }
 
   top_up {
     uuid id PK "Auto gen"
-    text type "VNPAY | MOMO | ZALOPAY"
+    text type "vnpay | momo | zalopay"
     varchar(20) sourceDestination FK
     decimal amount
-    boolean isPaid "Default false"
+    enum status "success | failed | overdue"
   }
 
   user }o--|| notification : "has"
@@ -112,7 +113,7 @@ erDiagram
 - `decimal` type:
 
   - With money, it will be `decimal(12,0)`
-  - With rate, it will be `decimal(3,1)`
+  - With rate, it will be `decimal(4,2)`
 
 - Materialized view:
 
