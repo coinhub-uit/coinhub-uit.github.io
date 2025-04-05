@@ -91,8 +91,8 @@ erDiagram
 
   top_up {
     uuid id PK "Auto gen"
+    varchar(20) sourceDestinationId FK
     text type "vnpay | momo | zalopay"
-    varchar(20) sourceDestination FK
     decimal amount
     enum status "success | failed | overdue"
   }
