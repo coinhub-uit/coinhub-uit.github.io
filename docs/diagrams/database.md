@@ -61,8 +61,8 @@ erDiagram
 
   ticket_history {
     int ticketId PK,FK
-    date issueAt PK "ticket[createdAt] || prev[issueAt]"
-    date maturityAt "issueDate + plan[days] + 1"
+    date issuedAt PK "ticket[createdAt] || prev[maturedAt]"
+    date maturedAt "issuedAt + plan[days] + 1"
     int planHistoryId FK "plan_history[id] where max(plan_history[createdAt])"
     decimal amount ">= settings[minAmountOpenTicket]"
   }
