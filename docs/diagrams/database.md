@@ -94,7 +94,7 @@ erDiagram
     varchar(20) sourceDestinationId FK
     text type "vnpay | momo | zalopay"
     decimal amount
-    enum status "success | failed | overdue"
+    enum status "processing | success | declined | overdue"
   }
 
   user }o--|| notification : "has"
