@@ -29,7 +29,6 @@ erDiagram
     date birthDate
     text avatar "Nullable, URL, fallback OAuth image on client"
     text address "Nullable"
-    char(10) phoneNumber "Nullable"
     timestamp createdAt
     timestamp deletedAt "Nullable"
   }
