@@ -39,10 +39,6 @@ erDiagram
     decimal balance "Default 0, >= 0"
   }
 
-  method {
-    varchar(3) id "Seed(NR, PR, PIR)"
-  }
-
   plan_history {
     serial id PK
     int planId FK
@@ -53,7 +49,7 @@ erDiagram
   ticket {
     serial id PK
     int sourceId FK
-    varchar(3) methodId FK
+    enum method "NR | PR | PIR"
     date openedAt "Default now"
     date closedAt "Nullable, = ticket's end date"
   }
@@ -99,7 +95,6 @@ erDiagram
   user }o--|| notification : "has"
   user }o--|| source : "has"
   source }o--|| ticket : "has"
-  ticket ||--o{ method : "has"
   ticket }|--|| ticket_history : "has history"
   plan }o--|| plan_history : "has history"
   ticket_history ||--}o plan_history : "has latest"
@@ -116,7 +111,7 @@ erDiagram
 
 - Materialized view:
 
-  - `avaiable_plan`: latest,active plan history
+  - `avaiable_plan`: latest, active plan history
 
 :::
 
