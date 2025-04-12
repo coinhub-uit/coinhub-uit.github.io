@@ -33,6 +33,12 @@ erDiagram
     timestamp deletedAt "Nullable"
   }
 
+  device {
+    uuid userId PK,FK
+    text deviceId PK
+    text fcmToken "For FCM"
+  }
+
   source {
     varchar(20) id PK "User choice"
     uuid userId FK
@@ -93,6 +99,7 @@ erDiagram
   }
 
   user }o--|| notification : "has"
+  user }|--|| device : "has"
   user }o--|| source : "has"
   source }o--|| ticket : "has"
   ticket }|--|| ticket_history : "has history"
