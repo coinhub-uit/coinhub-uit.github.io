@@ -29,8 +29,8 @@ erDiagram
     date birthDate
     text avatar "Nullable, URL, fallback OAuth image on client"
     text address "Nullable"
-    timestamp createdAt
-    timestamp deletedAt "Nullable"
+    timestamptz createdAt
+    timestamptz deletedAt "Nullable"
   }
 
   device {
@@ -45,10 +45,16 @@ erDiagram
     decimal balance "Default 0, >= 0"
   }
 
+  plan {
+    serial id PK
+    int days UK ">= 1, Seed(30, 90, 180)"
+    boolean isActive
+  }
+
   plan_history {
     serial id PK
     int planId FK
-    date createdAt
+    timestamptz createdAt
     decimal rate
   }
 
@@ -56,8 +62,8 @@ erDiagram
     serial id PK
     int sourceId FK
     enum method "NR | PR | PIR"
-    date openedAt "Default now"
-    date closedAt "Nullable, = ticket's end date"
+    timestamptz openedAt "Default now"
+    timestamptz closedAt "Nullable, = ticket's end date"
   }
 
   ticket_history {
@@ -68,18 +74,12 @@ erDiagram
     decimal amount ">= settings[minAmountOpenTicket]"
   }
 
-  plan {
-    serial id PK
-    int days UK ">= 1, Seed(30, 90, 180)"
-    boolean isActive
-  }
-
   notification {
     serial id PK
     uuid userId FK "Index"
     nvarchar title
     text content
-    timestamp createdAt "Default now"
+    timestamptz createdAt "Default now"
     boolean isSeen
   }
 
@@ -102,10 +102,10 @@ erDiagram
   user }|--|| device : "has"
   user }o--|| source : "has"
   source }o--|| ticket : "has"
+  source }o--|| top_up : "has"
   ticket }|--|| ticket_history : "has history"
   plan }o--|| plan_history : "has history"
   ticket_history ||--}o plan_history : "has latest"
-  source }o--|| top_up : "has"
 ```
 
 :::note
