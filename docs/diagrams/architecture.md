@@ -7,8 +7,8 @@ sidebar_position: 2
 ```mermaid
 flowchart TD
   subgraph consumers["Consumers"]
-    mobile["Mobile"]
-    adminWebsite["Admin website"]
+    mobile["Mobile App"]@{ shape:circ }
+    admin["Admin Website"]@{ shape:circ }
   end
 
   subgraph providers["Providers"]
@@ -17,16 +17,16 @@ flowchart TD
       authenticationServer["Authentication Server"]
     end
     subgraph databases["Databases"]
-      authDatabase["Auth Database"]
-      publicDatabase["Public Database"]
+      authDatabase["Auth Database"]@{ shape: db }
+      publicDatabase["Public Database"]@{ shape: db }
     end
   end
 
   mobile-->authenticationServer
   mobile-->apiServer
-  adminWebsite-->apiServer
-  apiServer-->publicDatabase
+  admin-->apiServer
   apiServer<-->authenticationServer
+  apiServer-->publicDatabase
   authenticationServer-->authDatabase
 ```
 
