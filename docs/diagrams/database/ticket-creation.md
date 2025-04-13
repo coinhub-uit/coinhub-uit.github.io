@@ -56,6 +56,7 @@ erDiagram
 ```mermaid
 erDiagram
   settings {
+    boolean id PK
     decimal minAmountOpenTicket
   }
 ```

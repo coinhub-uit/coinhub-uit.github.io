@@ -14,6 +14,7 @@ erDiagram
   }
 
   settings {
+    boolean id PK "= true"
     decimal minAmountOpenTicket
   }
 
@@ -80,7 +81,7 @@ erDiagram
     nvarchar title
     text content
     timestamptz createdAt "Default now"
-    boolean isSeen
+    boolean isRead
   }
 
   avaiable_plan {
