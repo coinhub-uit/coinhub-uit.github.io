@@ -17,17 +17,17 @@ flowchart TD
       authenticationServer["Authentication Server"]
     end
     subgraph databases["Databases"]
-      authenticationDatabase["Authentication Database"]
-      resourcesDatabase["Resources Database"]
+      authDatabase["Auth Database"]
+      publicDatabase["Public Database"]
     end
   end
 
   mobile-->authenticationServer
   mobile-->apiServer
   adminWebsite-->apiServer
-  authenticationServer-->authenticationDatabase
-  apiServer-->authenticationDatabase
-  apiServer-->resourcesDatabase
+  apiServer-->publicDatabase
+  apiServer<-->authenticationServer
+  authenticationServer-->authDatabase
 ```
 
 :::info
