@@ -13,6 +13,7 @@ erDiagram
   ticket {
     serial id PK
     int sourceId FK
+    int planId
     enum method
     date openedAt
   }
@@ -43,8 +44,9 @@ erDiagram
 
   user }o--|| source : "has"
   source }o--|| top_up : "has"
-  ticket }|--|| ticket_history : "has history"
   plan }o--|| plan_history : "has history"
+  ticket }|--|| ticket_history : "has history"
+  ticket ||--|o plan: "has"
   ticket_history ||--}o plan_history : "has latest"
   source }o--|| ticket : "has"
 ```
@@ -70,8 +72,9 @@ erDiagram
 
   user }o--|| source : "has"
   source }o--|| top_up : "has"
-  ticket }|--|| ticket_history : "has history"
   plan }o--|| plan_history : "has history"
+  ticket }|--|| ticket_history : "has history"
+  ticket ||--|o plan: "has"
   ticket_history ||--}o plan_history : "has latest"
   source }o--|| ticket : "has"
 ```

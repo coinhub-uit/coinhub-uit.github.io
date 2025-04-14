@@ -62,6 +62,7 @@ erDiagram
   ticket {
     serial id PK
     int sourceId FK
+    int planId
     enum method "NR | PR | PIR"
     timestamptz openedAt "Default now"
     timestamptz closedAt "Nullable, = ticket's end date"
@@ -105,6 +106,7 @@ erDiagram
   source }o--|| ticket : "has"
   source }o--|| top_up : "has"
   ticket }|--|| ticket_history : "has history"
+  ticket ||--|o plan: "has"
   plan }o--|| plan_history : "has history"
   ticket_history ||--}o plan_history : "has latest"
 ```
