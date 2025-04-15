@@ -4,8 +4,6 @@ sidebar_position: 1
 
 # Intro
 
-IDK let Lucky cook
-
 ## Lecturers
 
 | NAME               | ACADEMIC DEGREE | EMAIL                                             |
@@ -24,4 +22,4 @@ IDK let Lucky cook
 
 ## Report
 
-Later
+- [Word](https://1drv.ms/w/c/bb48fd20e154f84d/EU34VOEg_UgggLvXBgAAAAABcqxOhV6rEMpb1gHOqhXI0A?e=YJ96I9)
