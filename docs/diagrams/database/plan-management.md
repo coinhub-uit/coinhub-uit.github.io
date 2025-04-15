@@ -13,7 +13,6 @@ erDiagram
   plan {
     serial id PK
     int days UK ">= 1, Seed(30, 90, 180)"
-    boolean isActive
   }
 
   plan_history {

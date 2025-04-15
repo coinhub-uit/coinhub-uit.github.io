@@ -49,7 +49,6 @@ erDiagram
   plan {
     serial id PK
     int days UK ">= 1, Seed(30, 90, 180)"
-    boolean isActive
   }
 
   plan_history {
@@ -87,9 +86,9 @@ erDiagram
 
   avaiable_plan {
     int id "planHistoryId"
-    date createdAt
     decimal rate
     int planId
+    int days
   }
 
   top_up {

@@ -27,10 +27,10 @@ erDiagram
   }
 
   avaiable_plan {
-    int id
-    date createdAt
+    int id "planHistoryId"
     decimal rate
     int planId
+    int days
   }
 
   ticket }|--|| ticket_history : "has history"
