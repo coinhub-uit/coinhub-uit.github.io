@@ -48,7 +48,7 @@ erDiagram
 
   plan {
     serial id PK
-    int days UK ">= 1, Seed(30, 90, 180)"
+    int days UK "\>=1, Seed(30, 90, 180)"
   }
 
   plan_history {
@@ -72,7 +72,7 @@ erDiagram
     date issuedAt PK "ticket[createdAt] || prev[maturedAt]"
     date maturedAt "issuedAt + plan[days] + 1"
     int planHistoryId FK "plan_history[id] where max(plan_history[createdAt])"
-    decimal amount ">= settings[minAmountOpenTicket]"
+    decimal amount "\>= settings[minAmountOpenTicket]"
   }
 
   notification {
