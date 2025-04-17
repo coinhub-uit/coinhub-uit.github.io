@@ -48,7 +48,7 @@ erDiagram
 
   plan {
     serial id PK
-    int days UK "\>=1, Seed(30, 90, 180)"
+    int days UK "\>=1, Seed(-1, 30, 90, 180)"
   }
 
   plan_history {
