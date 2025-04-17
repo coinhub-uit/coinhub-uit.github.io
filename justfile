@@ -1,5 +1,7 @@
 default: start
 
+set windows-shell := ["cmd", "/c"]
+
 start:
   npm run start
 
