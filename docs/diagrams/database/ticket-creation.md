@@ -15,7 +15,9 @@ erDiagram
     int sourceId FK
     int planId
     enum method
-    date openedAt
+    timestamptz openedAt
+    timestamptz closedAt
+    enum status
   }
 
   ticket_history {

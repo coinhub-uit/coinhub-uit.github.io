@@ -64,7 +64,8 @@ erDiagram
     int planId
     enum method "NR | PR | PIR"
     timestamptz openedAt "Default now"
-    timestamptz closedAt "Nullable, = ticket's end date"
+    timestamptz closedAt "Nullable, defined when withdrawn"
+    enum status "active | earlyWithdrawn | maturedWithdrawn"
   }
 
   ticket_history {
