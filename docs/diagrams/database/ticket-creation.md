@@ -23,7 +23,8 @@ erDiagram
     date issuedAt PK
     date maturedAt
     int planHistoryId FK
-    decimal amount
+    decimal principal
+    decimal interest
   }
 
   avaiable_plan {
