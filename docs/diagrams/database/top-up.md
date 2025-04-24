@@ -27,7 +27,7 @@ erDiagram
     text provider
     decimal amount
     enum status
-    createdAt date
+    createdAt timestamptz
   }
 ```
 

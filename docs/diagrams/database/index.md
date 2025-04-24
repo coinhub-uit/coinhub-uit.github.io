@@ -99,7 +99,7 @@ erDiagram
     text type "vnpay | momo | zalopay"
     decimal amount
     enum status "processing | success | declined | overdue"
-    createAt date
+    createAt timestamptz
   }
 
   user }o--|| notification : "has"
