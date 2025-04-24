@@ -1,6 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+  - [sidebar_position: 3](#sidebar_position-3)
+- [Database](#database)
+  - [Term explanation](#term-explanation)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ---
-sidebar_position: 3
----
+
+## sidebar_position: 3
 
 # Database
 
@@ -99,6 +108,7 @@ erDiagram
     text type "vnpay | momo | zalopay"
     decimal amount
     enum status "processing | success | declined | overdue"
+    createAt date
   }
 
   user }o--|| notification : "has"
