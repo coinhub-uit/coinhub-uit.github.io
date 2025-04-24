@@ -83,6 +83,10 @@ const config: Config = {
               label: 'coinhub-uit@googlegroups.com',
               to: 'mailto:coinhub-uit@googlegroups.com',
             },
+            {
+              label: 'coinhub-uit@groups.outlook.com',
+              to: 'mailto:coinhub-uit@groups.outlook.com',
+            },
           ],
         },
       ],
