@@ -96,7 +96,7 @@ erDiagram
   top_up {
     uuid id PK "Auto gen"
     varchar(20) sourceDestinationId FK
-    text provider "vnpay | momo | zalopay"
+    enum provider "vnpay | momo | zalopay"
     decimal amount
     enum status "processing | success | declined | overdue"
     createAt timestamptz
