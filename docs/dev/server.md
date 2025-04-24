@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Server
 
-## Perquisites
+## Prerequisites
 
 - [Just](https://github.com/casey/just)
 - [Node](https://nodejs.org/en)

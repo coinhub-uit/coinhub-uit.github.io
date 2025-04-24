@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Mobile Flutter
 
-## Perquisites
+## Prerequisites
 
 - [Just](https://github.com/casey/just)
 - [Flutter](https://flutter.dev/)

@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Web
 
-## Perquisites
+## Prerequisites
 
 - [Node](https://nodejs.org/en)
 
