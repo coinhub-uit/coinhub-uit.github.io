@@ -79,7 +79,7 @@ erDiagram
 
   notification {
     serial id PK
-    uuid userId FK "Index"
+    uuid userId FK
     nvarchar title
     text content
     timestamptz createdAt "Default now"
