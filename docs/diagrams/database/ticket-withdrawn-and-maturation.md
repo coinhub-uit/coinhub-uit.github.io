@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Ticket withdrawn and maturation
 
-::: note
+:::note
 
 I don't think maturation is a right word to describe what I want...?
 
@@ -14,8 +14,14 @@ I don't think maturation is a right word to describe what I want...?
 
 ### New table(s)
 
-```
+```mermaid
 erDiagram
+  device {
+    uuid userId PK,FK
+    text deviceId PK
+    text fcmToken
+  }
+
   notification {
     serial id PK
     uuid userId FK
@@ -33,6 +39,7 @@ erDiagram
   settings
 
   user }o--|| source : "has"
+  user }|--|| device : "has"
   user }o--|| notification : "has"
   source }o--|| top_up : "has"
   plan }o--|| plan_history : "has history"
