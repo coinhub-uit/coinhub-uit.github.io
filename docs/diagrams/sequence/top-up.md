@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Top-up
+# Top up
 
 ```mermaid
 sequenceDiagram
