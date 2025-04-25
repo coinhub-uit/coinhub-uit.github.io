@@ -19,7 +19,7 @@ erDiagram
   }
 
   admin {
-    text username PK,UK
+    text username PK
     text password "Hashed"
   }
 
