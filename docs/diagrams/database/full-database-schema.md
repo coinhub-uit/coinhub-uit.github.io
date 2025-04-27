@@ -6,28 +6,6 @@ sidebar_position: 12
 
 ```mermaid
 erDiagram
-  activity_report {
-    date date PK
-    int users
-    int tickets
-    decimal totalPrincipal
-  }
-
-  revenue_report {
-    date date PK
-    int days
-    decimal income
-    decimal expense
-    decimal netIncome
-  }
-
-  ticket_report {
-    date date PK
-    int days
-    int openedCount
-    int closedCount
-  }
-
   settings {
     boolean id PK
     decimal minPrincipalOpenTicket
@@ -115,6 +93,28 @@ erDiagram
     decimal amount
     enum status
     createAt timestamptz
+  }
+
+  activity_report {
+    date date PK
+    int users
+    int tickets
+    decimal totalPrincipal
+  }
+
+  revenue_report {
+    date date PK
+    int days
+    decimal income
+    decimal expense
+    decimal netIncome
+  }
+
+  ticket_report {
+    date date PK
+    int days
+    int openedCount
+    int closedCount
   }
 
   user }o--|| notification : "has"

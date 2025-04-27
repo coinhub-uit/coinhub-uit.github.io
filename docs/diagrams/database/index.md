@@ -4,40 +4,10 @@ sidebar_position: 3
 
 # Database
 
+## User relate
+
 ```mermaid
 erDiagram
-  activity_report {
-    date date PK
-    int users "Σ new user"
-    int tickets "Σ ticket hasn't been closed"
-    decimal totalPrincipal "Σ ticket_history[principal]"
-  }
-
-  revenue_report {
-    date date PK
-    int days "plan[days]"
-    decimal income "Σ ticket_history[principal] where ticket_history[issuedAt ~= date]"
-    decimal expense "Σ ticket_history[interest] where ticket_history[issuedAt ~= date]"
-    decimal netIncome "income - expense"
-  }
-
-  ticket_report {
-    date date PK
-    int days "plan[days]"
-    int openedCount "Σ ticket_history[issuedAt ~= date]"
-    int closedCount "Σ ticket_history[maturedAt ~= date]"
-  }
-
-  settings {
-    boolean id PK "= true"
-    decimal minPrincipalOpenTicket
-  }
-
-  admin {
-    text username PK
-    text password "Hashed"
-  }
-
   user {
     uuid id PK "Supabase generated"
     text fullName
@@ -141,6 +111,48 @@ erDiagram
   - `avaiable_plan`: latest, active plan history
 
 :::
+
+## Admin relate
+
+```mermaid
+erDiagram
+  settings {
+    boolean id PK "= true"
+    decimal minPrincipalOpenTicket
+  }
+
+  admin {
+    text username PK
+    text password "Hashed"
+  }
+```
+
+## Report relate
+
+```mermaid
+erDiagram
+  activity_report {
+    date date PK
+    int users "Σ new user"
+    int tickets "Σ ticket hasn't been closed"
+    decimal totalPrincipal "Σ ticket_history[principal]"
+  }
+
+  revenue_report {
+    date date PK
+    int days "plan[days]"
+    decimal income "Σ ticket_history[principal] where ticket_history[issuedAt ~= date]"
+    decimal expense "Σ ticket_history[interest] where ticket_history[issuedAt ~= date]"
+    decimal netIncome "income - expense"
+  }
+
+  ticket_report {
+    date date PK
+    int days "plan[days]"
+    int openedCount "Σ ticket_history[issuedAt ~= date]"
+    int closedCount "Σ ticket_history[maturedAt ~= date]"
+  }
+```
 
 ## Term explanation
 
