@@ -10,7 +10,7 @@ erDiagram
     date date
     int users "Σ user"
     int tickets "Σ ticket"
-    decimal amount "Σ ticket_history[principal]"
+    decimal totalPrincipal "Σ ticket_history[principal]"
   }
 
   ticket_report {

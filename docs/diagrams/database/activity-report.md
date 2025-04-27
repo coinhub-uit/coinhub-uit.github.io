@@ -14,7 +14,7 @@ erDiagram
     date date
     int users
     int tickets
-    decimal amount
+    decimal totalPrincipal
   }
 ```
 
