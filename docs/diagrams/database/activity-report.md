@@ -10,14 +10,11 @@ sidebar_position: 7
 
 ```mermaid
 erDiagram
-  ticket_report {
+  activity_report {
     date date
-    int days
-    int openedCount
-    int closedCount
-    decimal income
-    decimal expense
-    decimal netIncome
+    int users
+    int tickets
+    decimal amount
   }
 ```
 
@@ -28,7 +25,6 @@ erDiagram
   avaiable_plan
   settings
   activity_report
-  ticket_report
 
   user }o--|| source : "has"
   user }|--|| device : "has"
