@@ -17,20 +17,21 @@ I don't think maturation is a right word to describe what I want...?
 ```mermaid
 erDiagram
   device {
-    uuid userId PK,FK
     text deviceId PK
+    uuid userId PK
     text fcmToken
   }
 
   notification {
     serial id PK
     uuid userId FK
-    nvarchar title
+    text title
     text content
     timestamptz createdAt
     boolean isRead
   }
 ```
+
 ### Full relationships
 
 ```mermaid

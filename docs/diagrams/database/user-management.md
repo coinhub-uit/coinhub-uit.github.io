@@ -12,7 +12,7 @@ sidebar_position: 1
 erDiagram
   user {
     uuid id PK
-    nvarchar fullName
+    text fullName
     char(12) citizenId UK
     date birthDate
     text avatar

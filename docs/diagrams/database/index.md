@@ -6,11 +6,21 @@ sidebar_position: 3
 
 ```mermaid
 erDiagram
-  statistic {
+  activity_report {
     date date
     int users "Σ user"
     int tickets "Σ ticket"
-    decimal deposits "Σ ticket[amount]"
+    decimal amount "Σ ticket_history[principal]"
+  }
+
+  ticket_report {
+    date date
+    int days "plan[days]"
+    int openedCount "Σ ticket_history[issuedAt ~= date]"
+    int closedCount "Σ ticket_history[maturedAt ~= date]"
+    decimal income "Σ ticket_history[principal]"
+    decimal expense "Σ ticket_history[interest]"
+    decimal netIncome "income - expense"
   }
 
   settings {
@@ -25,7 +35,7 @@ erDiagram
 
   user {
     uuid id PK "Supabase generated"
-    nvarchar fullName
+    text fullName
     char(12) citizenId UK
     date birthDate
     text avatar "Nullable, URL, fallback OAuth image on client"
@@ -35,8 +45,8 @@ erDiagram
   }
 
   device {
-    uuid userId PK,FK
-    text deviceId PK
+    text id PK
+    uuid userId FK
     text fcmToken "For FCM"
   }
 
@@ -80,7 +90,7 @@ erDiagram
   notification {
     serial id PK
     uuid userId FK
-    nvarchar title
+    text title
     text content
     timestamptz createdAt "Default now"
     boolean isRead

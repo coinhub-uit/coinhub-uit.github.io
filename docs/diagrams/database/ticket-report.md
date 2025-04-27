@@ -1,8 +1,8 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 ---
 
-# Requirements changing
+# Ticket report
 
 ## Correctness
 
@@ -10,9 +10,11 @@ sidebar_position: 9
 
 ```mermaid
 erDiagram
-  admin {
-    text username PK
-    text password
+  activity_report {
+    date date
+    int users
+    int tickets
+    decimal amount
   }
 ```
 
@@ -22,7 +24,7 @@ erDiagram
 erDiagram
   avaiable_plan
   settings
-  admin
+  activity_report
 
   user }o--|| source : "has"
   user }|--|| device : "has"
