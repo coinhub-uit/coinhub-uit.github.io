@@ -8,8 +8,8 @@ sidebar_position: 3
 erDiagram
   activity_report {
     date date PK
-    int users "Σ user"
-    int tickets "Σ ticket"
+    int users "Σ new user"
+    int tickets "Σ ticket hasn't been closed"
     decimal totalPrincipal "Σ ticket_history[principal]"
   }
 
