@@ -7,14 +7,14 @@ sidebar_position: 3
 ```mermaid
 erDiagram
   activity_report {
-    date date
+    date date PK
     int users "Σ user"
     int tickets "Σ ticket"
     decimal totalPrincipal "Σ ticket_history[principal]"
   }
 
   revenue_report {
-    date date
+    date date PK
     int days "plan[days]"
     decimal income "Σ ticket_history[principal] where ticket_history[issuedAt ~= date]"
     decimal expense "Σ ticket_history[interest] where ticket_history[issuedAt ~= date]"
@@ -22,7 +22,7 @@ erDiagram
   }
 
   ticket_report {
-    date date
+    date date PK
     int days "plan[days]"
     int openedCount "Σ ticket_history[issuedAt ~= date]"
     int closedCount "Σ ticket_history[maturedAt ~= date]"

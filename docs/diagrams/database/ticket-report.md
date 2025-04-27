@@ -11,7 +11,7 @@ sidebar_position: 9
 ```mermaid
 erDiagram
   ticket_report {
-    date date
+    date date PK
     int days
     int openedCount
     int closedCount

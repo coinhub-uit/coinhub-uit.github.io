@@ -22,6 +22,9 @@ erDiagram
 erDiagram
   avaiable_plan
   settings
+  activity_report
+  revenue_report
+  ticket_report
   admin
 
   user }o--|| source : "has"

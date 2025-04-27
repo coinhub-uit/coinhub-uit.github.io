@@ -11,7 +11,7 @@ sidebar_position: 8
 ```mermaid
 erDiagram
   revenue_report {
-    date date
+    date date PK
     int days
     decimal income
     decimal expense

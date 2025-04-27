@@ -11,7 +11,7 @@ sidebar_position: 7
 ```mermaid
 erDiagram
   activity_report {
-    date date
+    date date PK
     int users
     int tickets
     decimal totalPrincipal
