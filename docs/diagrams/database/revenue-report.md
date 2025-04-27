@@ -1,8 +1,8 @@
 ---
-sidebar_position: 10
+sidebar_position: 8
 ---
 
-# Requirements changing
+# Revenue report
 
 ## Correctness
 
@@ -10,9 +10,12 @@ sidebar_position: 10
 
 ```mermaid
 erDiagram
-  admin {
-    text username PK
-    text password
+  revenue_report {
+    date date
+    int days
+    decimal income
+    decimal expense
+    decimal netIncome
   }
 ```
 
@@ -22,7 +25,8 @@ erDiagram
 erDiagram
   avaiable_plan
   settings
-  admin
+  activity_report
+  revenue_report
 
   user }o--|| source : "has"
   user }|--|| device : "has"

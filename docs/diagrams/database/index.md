@@ -13,14 +13,19 @@ erDiagram
     decimal totalPrincipal "Σ ticket_history[principal]"
   }
 
+  revenue_report {
+    date date
+    int days "plan[days]"
+    decimal income "Σ ticket_history[principal] where ticket_history[issuedAt ~= date]"
+    decimal expense "Σ ticket_history[interest] where ticket_history[issuedAt ~= date]"
+    decimal netIncome "income - expense"
+  }
+
   ticket_report {
     date date
     int days "plan[days]"
     int openedCount "Σ ticket_history[issuedAt ~= date]"
     int closedCount "Σ ticket_history[maturedAt ~= date]"
-    decimal income "Σ ticket_history[principal]"
-    decimal expense "Σ ticket_history[interest]"
-    decimal netIncome "income - expense"
   }
 
   settings {

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # Ticket report
@@ -15,9 +15,6 @@ erDiagram
     int days
     int openedCount
     int closedCount
-    decimal income
-    decimal expense
-    decimal netIncome
   }
 ```
 
@@ -28,6 +25,7 @@ erDiagram
   avaiable_plan
   settings
   activity_report
+  revenue_report
   ticket_report
 
   user }o--|| source : "has"
