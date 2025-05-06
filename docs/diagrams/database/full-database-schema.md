@@ -104,7 +104,7 @@ erDiagram
 
   revenue_report {
     date date PK
-    int days
+    int days PK
     decimal income
     decimal expense
     decimal netIncome
@@ -112,7 +112,7 @@ erDiagram
 
   ticket_report {
     date date PK
-    int days
+    int days PK
     int openedCount
     int closedCount
   }

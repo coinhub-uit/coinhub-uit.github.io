@@ -140,7 +140,7 @@ erDiagram
 
   revenue_report {
     date date PK
-    int days "plan[days]"
+    int days PK "plan[days]"
     decimal income "Σ ticket_history[principal] where ticket_history[issuedAt ~= date]"
     decimal expense "Σ ticket_history[interest] where ticket_history[issuedAt ~= date]"
     decimal netIncome "income - expense"
@@ -148,7 +148,7 @@ erDiagram
 
   ticket_report {
     date date PK
-    int days "plan[days]"
+    int days PK "plan[days]"
     int openedCount "Σ ticket_history[issuedAt ~= date]"
     int closedCount "Σ ticket_history[maturedAt ~= date]"
   }

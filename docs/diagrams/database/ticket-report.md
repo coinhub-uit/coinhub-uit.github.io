@@ -12,7 +12,7 @@ sidebar_position: 9
 erDiagram
   ticket_report {
     date date PK
-    int days
+    int days PK
     int openedCount
     int closedCount
   }

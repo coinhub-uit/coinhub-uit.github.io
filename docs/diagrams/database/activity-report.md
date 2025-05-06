@@ -12,7 +12,7 @@ sidebar_position: 7
 erDiagram
   activity_report {
     date date PK
-    int users
+    int users PK
     int tickets
     decimal totalPrincipal
   }

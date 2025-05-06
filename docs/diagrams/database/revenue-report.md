@@ -12,7 +12,7 @@ sidebar_position: 8
 erDiagram
   revenue_report {
     date date PK
-    int days
+    int days PK
     decimal income
     decimal expense
     decimal netIncome
