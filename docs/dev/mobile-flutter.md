@@ -20,6 +20,14 @@ just b
 
 ### Setup Firebase
 
+#### Login firebase
+
+```sh
+firebase login
+```
+
+#### Setup files
+
 ```sh
 just sf '<PROJECT_ID>'
 ```
