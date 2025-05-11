@@ -27,7 +27,7 @@ architecture-beta
 
   junction api_server_and_ai_vnpay
 
-  service mobile[Mobile Flutter]
+  service mobile[Mobile]
   service admin[Admin Browser]
 
   api_server:L -- R:authentication_server{group}
