@@ -11,8 +11,8 @@ sequenceDiagram
   participant apiServer as API Server
   participant aiServer as AI Server
 
-  loop Mỗi lần gửi tin nhắn
-    mobile->>apiServer: Cuộc trò chuyện
+  loop Hỏi
+    mobile->>apiServer: Câu hỏi
     activate mobile
     activate apiServer
     apiServer->>aiServer: Cuộc trò chuyện
