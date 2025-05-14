@@ -79,7 +79,7 @@ erDiagram
     boolean isRead
   }
 
-  avaiable_plan {
+  available_plan {
     int id
     decimal rate
     int planId

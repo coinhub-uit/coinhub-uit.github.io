@@ -71,7 +71,7 @@ erDiagram
     boolean isRead
   }
 
-  avaiable_plan {
+  available_plan {
     int id "planHistoryId"
     decimal rate
     int planId
@@ -108,7 +108,7 @@ erDiagram
 
 - Materialized view:
 
-  - `avaiable_plan`: latest, active plan history
+  - `available_plan`: latest, active plan history
 
 :::
 

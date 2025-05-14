@@ -29,7 +29,7 @@ erDiagram
     decimal interest
   }
 
-  avaiable_plan {
+  available_plan {
     int id "planHistoryId"
     decimal rate
     int planId
@@ -43,7 +43,7 @@ erDiagram
 
 ```mermaid
 erDiagram
-  avaiable_plan
+  available_plan
 
   user }o--|| source : "has"
   source }o--|| top_up : "has"
@@ -70,7 +70,7 @@ erDiagram
 
 ```mermaid
 erDiagram
-  avaiable_plan
+  available_plan
   settings
 
   user }o--|| source : "has"

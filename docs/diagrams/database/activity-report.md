@@ -22,7 +22,7 @@ erDiagram
 
 ```mermaid
 erDiagram
-  avaiable_plan
+  available_plan
   settings
   activity_report
 

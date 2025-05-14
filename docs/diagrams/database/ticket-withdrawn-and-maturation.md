@@ -36,7 +36,7 @@ erDiagram
 
 ```mermaid
 erDiagram
-  avaiable_plan
+  available_plan
   settings
 
   user }o--|| source : "has"
