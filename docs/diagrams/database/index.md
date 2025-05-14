@@ -72,7 +72,7 @@ erDiagram
   }
 
   available_plan {
-    int id "planHistoryId"
+    int planHistoryId
     decimal rate
     int planId
     int days
