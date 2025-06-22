@@ -37,6 +37,8 @@ erDiagram
     varchar(20) id PK
     uuid userId FK
     decimal balance
+    openedAt timestamptz
+    closedAt timestamptz
   }
 
   plan {

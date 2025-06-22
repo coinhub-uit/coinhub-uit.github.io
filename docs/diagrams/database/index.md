@@ -29,6 +29,8 @@ erDiagram
     varchar(20) id PK "User choice"
     uuid userId FK
     decimal balance "Default 0, >= 0"
+    openedAt timestamptz
+    closedAt timestamptz
   }
 
   plan {
