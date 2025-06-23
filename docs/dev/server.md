@@ -21,38 +21,43 @@ just b
 
 ### Setup `.env`
 
-```env
-PORT=3001 # Port of Server
-UPLOAD_PATH=assets/uploads # For avatar uploading, no trailing /
-API_SERVER_URL= # For something, no trailing /
-
-DB_HOST=
-DB_USERNAME=
-DB_PASSWORD=
-DB_DATABASE=
-DB_PORT=
-
-AI_API_KEY= # Not yet,...
-
-SUPABASE_PROJECT_URL= # No trailing /
-SUPABASE_JWT_SECRET= # For auth user
-SUPABASE_SERVICE_ROLE_KEY= # For communicate with supabase server
-
-ADMIN_JWT_SECRET=
-ADMIN_JWT_REFRESH_SECRET=
-
-VNPAY_TMN_CODE=
-VNPAY_SECURE_SECRET=
-VNPAY_HOST=https://sandbox.vnpayment.vn
-```
+See `.env.example`
 
 ## Dev
+
+### Run
 
 - Start Supabase
   ```sh
   just ss
   ```
+- Start docker compose stuff (include redis)
+  ```sh
+  just d
+  ```
 - Start API server
   ```sh
   just
   ```
+
+::: info
+
+See `justfile` for more commands for seeding, resetting database.
+
+:::
+
+### Prompt
+
+#### `codecompanion`
+
+1. Workspace `Generate Active Tickets`
+
+```
+@mcp generate ${x} tickets for source with the ID ${y}. Current datetime is /now
+```
+
+::: note
+
+You have to manually enter tool (`@mcp`, ...) and function (`/now`, ...) for codecompanion to parse.
+
+:::
