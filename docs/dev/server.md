@@ -40,7 +40,7 @@ See `.env.example`
   just
   ```
 
-::: info
+:::info
 
 See `justfile` for more commands for seeding, resetting database.
 
@@ -56,7 +56,7 @@ See `justfile` for more commands for seeding, resetting database.
 @mcp generate ${x} tickets for source with the ID ${y}. Current datetime is /now
 ```
 
-::: note
+:::note
 
 You have to manually enter tool (`@mcp`, ...) and function (`/now`, ...) for codecompanion to parse.
 
